@@ -318,7 +318,7 @@ body {
   left: 0px;
   width: 100%;
   z-index: 100;
-  background-color: #474f5c;
+  background-color: #1223ff;
 }
 .headerDefault {
   height: 70px;
@@ -358,24 +358,24 @@ h1 {
   font-weight: bold;
   padding-bottom: 15px;
   padding-top: 15px;
-  color: #023e34;
+  color: #59cc23;
 }
 h2 {
   font-family: 'Verdana Bold', sans-serif;
   font-size: 1.25em;
   font-weight: bold;
-  color: #023e34;
+  color: #59cc23;
 }
 h3 {
   font-family: 'Verdana Bold', sans-serif;
   font-size: 1.1em;
   font-weight: bold;
-  color: #023e34;
+  color: #59cc23;
 }
 p {
   font-family: 'Verdana Bold', sans-serif;
   font-size: 1em;
-  color: #474f5c;
+  color: #333333;
   line-height: 1.5em;
 }
 /*************
@@ -399,7 +399,7 @@ p {
 *
 *************/
 #footer_nav {
-  background-color: #474f5c;
+  background-color: #1223ff;
   border-top: 10px solid white;
   min-height: 25vh;
   background-position: left bottom;
@@ -690,7 +690,7 @@ Safari, Opera */
   font-size: 22px;
   font-weight: bold;
   z-index: 115;
-  background-color: #474f5c;
+  background-color: #1223ff;
   display: none;
 }
 #mainMenu ul {
@@ -714,7 +714,7 @@ Safari, Opera */
 }
 /* visited link */
 #mainMenu ul li a:visited {
-  color: #da8c04;
+  color: #ff6c2b;
 }
 /* selected link */
 #mainMenu ul li ul {
@@ -728,7 +728,7 @@ Safari, Opera */
   border-bottom: none;
 }
 #mainMenu ul li ul li {
-  background: #474f5c;
+  background: #1223ff;
   display: block;
   font-family: 'Work Sans', sans-serif;
   font-size: 16px;
@@ -739,7 +739,7 @@ Safari, Opera */
   border-bottom: none;
 }
 #mainMenu ul li ul li:hover {
-  background: #da8c04;
+  background: #ff6c2b;
 }
 /* 
 	Min Size 
@@ -851,7 +851,7 @@ Safari, Opera */
   }
   .headerInside {
     height: 70px;
-    background-color: #474f5c;
+    background-color: #1223ff;
   }
   /*************
 *
@@ -1170,15 +1170,15 @@ IE 9 */
   #mainMenu ul li a {
     padding-right: 15px;
     text-decoration: none;
-    color: #da8c04;
+    color: #ff6c2b;
     text-shadow: 2px 2px 8px #000;
   }
   #mainMenu ul li a:hover {
-    color: #da8c04;
+    color: #ff6c2b;
   }
   /* visited link */
   #mainMenu ul li a:visited {
-    color: #da8c04;
+    color: #ff6c2b;
   }
   /* selected
 link */
@@ -1194,7 +1194,7 @@ link */
     display: block;
   }
   #mainMenu ul li ul li {
-    background: #a1adbd;
+    background: #1e28b3;
     display: block;
     color: #fff;
     font-family: 'Work Sans', sans-serif;
@@ -1204,7 +1204,7 @@ link */
     text-align: left;
   }
   #mainMenu ul li ul li:hover {
-    background: #023e34;
+    background: #59cc23;
   }
 }
 /*
@@ -1275,7 +1275,7 @@ in the allax.js code if the site is viewed on a mobile device */
 *
 *************/
   #header {
-    background-color: #474f5c;
+    background-color: #1223ff;
   }
   .headerDefault {
     height: 100vh;

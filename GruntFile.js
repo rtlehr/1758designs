@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         watch: {
             //Checks for when a .LESS (style sheet) changes and then runs ''less'
             applicationLESS: {
-                files: ['_development/css/desktop.less', '_development/css/libs/**/*.less'],
+                files: ['_development/css/module-mediaQueries/**/*.less','_development/css/libs/**/*.less'],
                 tasks: ['less:application'],
                 options: {}
             },
@@ -59,11 +59,11 @@ module.exports = function(grunt) {
                 options: {
                     paths: '_development/css/libs',
                     imports: {
-                        less: ['styleGuide.less', '_development/css/libs/mixins.less', '_development/css/libs/layout.less']
+                        less: ['_development/css/libs/styleGuide.less', '_development/css/libs/mixins.less', '_development/css/libs/layout.less']
                     }
                 },
                 files: {
-                    '_production/assets/css/application.css': '_development/css/application.less'
+                    '_production/assets/css/application.css': '_development/css/compiled-less/application.less'
                 }
             }
         },
@@ -125,17 +125,17 @@ module.exports = function(grunt) {
             },
             mobileLESS: {
                 src: ['_development/css/module-mediaQueries/rotateImages/mobile.less', '_development/css/module-mediaQueries/events/mobile.less', '_development/css/module-mediaQueries/allax/mobile.less', '_development/css/module-mediaQueries/application/mobile.less', '_development/css/module-mediaQueries/menu/mobile.less'],
-                dest: '_development/css/mobile.less',
+                dest: '_development/css/compiled-less/mobile.less',
                 nonull: true,
             },
             tabletLESS: {
                 src: ['_development/css/module-mediaQueries/rotateImages/tablet.less', '_development/css/module-mediaQueries/events/tablet.less', '_development/css/module-mediaQueries/allax/tablet.less', '_development/css/module-mediaQueries/application/tablet.less', '_development/css/module-mediaQueries/menu/tablet.less'],
-                dest: '_development/css/tablet.less',
+                dest: '_development/css/compiled-less/tablet.less',
                 nonull: true,
             },
             desktopLESS: {
                 src: ['_development/css/module-mediaQueries/rotateImages/desktop.less', '_development/css/module-mediaQueries/events/desktop.less', '_development/css/module-mediaQueries/allax/desktop.less', '_development/css/module-mediaQueries/application/desktop.less', '_development/css/module-mediaQueries/menu/desktop.less'],
-                dest: '_development/css/desktop.less',
+                dest: '_development/css/compiled-less/desktop.less',
                 nonull: true,
             }
         },
