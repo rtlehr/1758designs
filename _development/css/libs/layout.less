@@ -69,7 +69,7 @@ PRODUCES
 	& when (@thisLineBreak > 0)
 	{   
 		
-		.column:nth-child(@{thisLineBreak}n + 1)
+		> .column:nth-child(@{thisLineBreak}n + 1)
         {
 			
             clear:@float;
@@ -78,7 +78,7 @@ PRODUCES
 		
 		@clearMargin: @thisLineBreak - 1;
 		
-		.column:nth-child(@{thisLineBreak}n)
+		> .column:nth-child(@{thisLineBreak}n)
         {
 			
 			margin-right: 0*1px;
@@ -87,7 +87,7 @@ PRODUCES
 		
 		& when (@thisUsePrecent=false){
 			
-			.column 
+			> .column 
 			{
 				
 				margin-bottom: @gutter*1px;
@@ -98,7 +98,7 @@ PRODUCES
 		
 		& when (@thisUsePrecent=true){
 			
-			.column 
+			> .column 
 			{
 				
 				margin-bottom: percentage(@gutter/@baseWidth);
@@ -115,7 +115,7 @@ PRODUCES
 	& when (@thisUsePrecent=false)
 	{
 		//Create the CSS width
-		.column 
+		> .column 
 		{
 			
 			width: @colWidth*1px;
@@ -129,7 +129,7 @@ PRODUCES
 	{
 		
 		//Create the CSS width
-		.column 
+		> .column 
 		{
 			
 			width: percentage(@colWidth/@baseWidth);
@@ -147,7 +147,7 @@ PRODUCES
     & when (@thisUsePrecent=false)
 	{
 		
-		.column 
+		> .column 
 		{
 			//Create the CSS width
 			width: @colWidth*1px;
@@ -159,7 +159,7 @@ PRODUCES
 		}
 
 		//Write the CSS for the last column
-		& .column:last-child 
+		& > .column:last-child 
 		{
 
 			width: @colWidth*1px;
@@ -173,7 +173,7 @@ PRODUCES
 	& when (@thisUsePrecent=true)
 	{
 		
-		.column 
+		> .column 
 		{
 			
 			//Create the CSS width
@@ -186,7 +186,7 @@ PRODUCES
 
 
 		//Write the CSS for the last column
-		& .column:last-child 
+		& > .column:last-child 
 		{
 			
 			width: percentage(@colWidth/@baseWidth)*1px;
@@ -343,7 +343,7 @@ PRODUCES
 	& when (@thisUsePrecent=false){
 		
 		@t: ~":nth-child(@{counter})";
-    	.column@{t}{
+    	> .column@{t}{
 			float: @float;
 			width: ((@singleColumn*extract(@columns, @counter))-((@right/2)+(@left/2)))*1px;
 			margin: @top*1px (@right/2)*1px @bottom*1px (@left/2)*1px;
@@ -353,7 +353,7 @@ PRODUCES
 	& when (@thisUsePrecent=true){
 	//if there is a float
     @t: ~":nth-child(@{counter})";
-    	.column@{t}{
+    	> .column@{t}{
 		//Add the float
      	float:@float;
 		//calculate the width of this column
@@ -391,7 +391,7 @@ PRODUCES
 	& when (@thisUsePrecent=false){
 		
 		@t: ~":nth-child(@{counter})";
-    	.column@{t}{
+    	> .column@{t}{
 			float: @float;
 			width: ((@singleColumn*extract(@columns, @counter))-(@right+(@left/2)))*1px;
 			margin: @top*1px @right*1px @bottom*1px (@left/2)*1px;
@@ -401,7 +401,7 @@ PRODUCES
 	& when (@thisUsePrecent=true){
 	//if there is a float
     @t: ~":nth-child(@{counter})";
-    .column@{t}{
+    > .column@{t}{
 		//Add the float
      	float:@float;
 		//calculate the width of this column

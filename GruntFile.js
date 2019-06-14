@@ -29,7 +29,7 @@ module.exports = function(grunt) {
                 options: {}
             },
             applicationJsConcat: {
-                files: ['_development/js/*'],
+                files: ['_development/js/**/*'],
                 tasks: ['concat:application'],
                 options: {}
             },
@@ -93,12 +93,12 @@ module.exports = function(grunt) {
             },
             application: {
                 files: {
-                    '_production/assets/js/allax.min.js': ['_production/assets/js/allax.js']
+                  '_production/assets/js/application.min.js': ['_production/assets/js/application.js']  
                 }
             },
             allax: {
                 files: {
-                    '_production/assets/js/application.min.js': ['_production/assets/js/application.js']
+                    '_production/assets/js/allax.min.js': ['_production/assets/js/allax.js']
                 }
             }
         },

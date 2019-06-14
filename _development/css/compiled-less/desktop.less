@@ -1,6 +1,58 @@
 #headerImages {}
 
+#headerImages h2 {
+	font-family: 'Verdana Bold', sans-serif;
+	font-size: 1.25em;
+	font-weight: bold;
+	color: @colorTwo;
+  font-size: 3rem;
+}
+
 .headerBackgroundImage {}
+
+.imageGradient
+{
+  position:relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height:100%;
+  z-index:50;
+  /*background-color: pink;*/
+  
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.4+100 */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#66000000',GradientType=0 ); /* IE6-9 */
+
+}
+
+.headerBackgroundImage .start
+{
+    position: absolute;
+    display: block;
+    width: 50%;
+    height: 350px;
+    top: 55%;
+    left:100%;
+    font-weight: bold;
+    padding: 1%;
+  z-index:100;
+}
+
+.headerBackgroundImage .finish
+{
+    position: absolute;
+    display: block;
+    width: 50%;
+    height: 350px;
+    top: 55%;
+    left:48%;
+    font-weight: bold;
+    padding: 1%;
+  z-index:100;
+}
 
 #rotateImageOne {}
 
@@ -10,33 +62,7 @@
 
 #rotateImageFour {}
 
-.headerBackgroundImage .start
-{
-    position: relative;
-    display: block;
-    width: 50%;
-    height: 350px;
-    top: 30%;
-    left:100%;
-    background-color: white;
-    opacity: 0.75;
-    font-weight: bold;
-    padding: 1%;
-}
 
-.headerBackgroundImage .finish
-{
-    position: relative;
-    display: block;
-    width: 50%;
-    height: 350px;
-    top: 30%;
-    left:48%;
-    background-color: white;
-    opacity: 0.75;
-    font-weight: bold;
-    padding: 1%;
-}
 
 
 /* events base less */
@@ -64,7 +90,6 @@
     display: table;
     position: relative;
     width: 100vw;
-    /*min-height: 50vh;*/
 }
 
 
@@ -118,7 +143,7 @@ in the allax.js code if the site is viewed on a mobile device */
 #headHeight {}
 
 #header {
-    background-color: @colorOne;
+    background-color: #999999;
 }
 
 .headerDefault { 
@@ -134,6 +159,7 @@ to the element */
 
 .headerInside {
     height: 70px;
+   background-color: @colorOne !important;
 }
 
 /*************
@@ -156,8 +182,6 @@ to the element */
 .logoDefault {}
 
 .logoInside {}
-
-#backToTop {}
 
 /*************
 *
@@ -258,7 +282,7 @@ body .ui-tooltip {}
 
 .oneColumns {
     position: relative;
-    width: 60%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -274,7 +298,7 @@ body .ui-tooltip {}
 
 .twoColumns {
     position: relative;
-    width: 60%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -295,7 +319,7 @@ body .ui-tooltip {}
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
-    min-height:50vh;
+    /*min-height:50vh;*/
     .equalColumns(@desktopBreak;
     4;
     10;
@@ -306,7 +330,7 @@ body .ui-tooltip {}
 
 .fourColumns {
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -322,7 +346,7 @@ body .ui-tooltip {}
 
 .fiveColumns {
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -335,6 +359,72 @@ body .ui-tooltip {}
     0;
     true);
 }
+
+/*************
+*
+*  Contact form
+*
+*************/
+
+#contactForm .column
+{
+  padding-bottom: 15px;  
+}
+
+.formControl {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+
+textarea.formControl {
+	height: auto;
+}
+
+.btn {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: @colorAlt;
+	border-color: @colorAltDarken;
+}
+
 #mobileMenu {
     display: none;
 }
@@ -342,7 +432,6 @@ body .ui-tooltip {}
 #mainMenu {
     font-family: @mainMenuFontFamily;
     font-size: 26px;
-    font-weight: bold;
 }
 
 .mainMenuDefault {}

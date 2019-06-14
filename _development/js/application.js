@@ -32,6 +32,41 @@
 
 })(window);
 
+$(document).ready(function(){
+  
+//SEND CONTACT EMAIL
+  
+      $('#contactForm').submit(function(e) {
+        
+        alert("submit clicked");
+               
+        e.preventDefault();
+        
+       /*  $.ajax({
+            type: "POST",
+            url: 'mail.php',
+            data: $(this).serialize(),
+            success: function(response)
+            {
+                var jsonData = JSON.parse(response);
+ 
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData.success == "1")
+                {
+                    alert("Mail sent to: " + jsonData.emailaddress);
+                }
+                else
+                {
+                    alert('Invalid Credentials!');
+                }
+           }
+       });
+       */
+     });
+  
+  
+});
 
 /*********************
  * 
@@ -69,6 +104,7 @@ function endPageScroll() {
  *
  **********************/
 
+
 function headerChange() {
 
     console.log("Form application.js header changed: " + $("#headerImages"));
@@ -80,54 +116,50 @@ function headerChange() {
 
 /*********************
  * 
- * Called when the page gets to the "about" section
- *
- **********************/
-
-function text_nav() {
-
-    console.log("     text_nav Section");
-
-}
-
-/*********************
- * 
- * Called when the page gets to the "Our Club" section
- *
- **********************/
-
-function animation_nav() {
-
-    var w = $(window).width();
-
-    var leftPos = (((w / 3) - 150) / w) * 100;
-
-
-    var rightPos = ((((w / 3) * 2) - 150) / w) * 100;
-
-    $("#leftOne").delay(0).animate({ left: (leftPos + '%') }, 1000);
-    $("#rightOne").delay(500).animate({ left: (rightPos + '%') }, 1000);
-
-    $("#leftTwo").delay(1000).animate({ left: (leftPos + '%') }, 1000);
-    $("#rightTwo").delay(1500).animate({ left: (rightPos + '%') }, 1000);
-
-    $("#leftThree").delay(2000).animate({ left: (leftPos + '%') }, 1000);
-    $("#rightThree").delay(2500).animate({ left: (rightPos + '%') }, 1000);
-
-    console.log("leftOne: " + $("#leftOne"))
-
-}
-
-/*********************
- * 
  * Called when the page gets to the "Events" section
  *
  **********************/
 
-function events_nav() {
+function services_nav() {
+    
+    console.log("------ services_nav ------");
+    switchBackgrounds();
 
-    console.log("     Events Section: ");
+}
 
+function footer_nav() {
+
+      console.log("------ footer_nav ------");
+
+    switchBackgrounds();
+
+}
+
+var topBackgroundimageArray = [];
+
+topBackgroundimageArray.push("backgoundImageOne");
+topBackgroundimageArray.push("backgoundImageTwo");
+
+$("#topImage").addClass(topBackgroundimageArray[0]);
+
+var currentClass;
+var currentImage = 0;
+var oldImage = 0;
+
+function switchBackgrounds()
+{
+      
+    oldImage = currentImage;
+  
+    currentImage++;  
+    
+    if(currentImage >= topBackgroundimageArray.length)
+    {
+      currentImage = 0;
+    }
+      
+    $("#topImage").switchClass(topBackgroundimageArray[oldImage], topBackgroundimageArray[currentImage], 0);
+  
 }
 
 /*********************
@@ -139,12 +171,40 @@ function events_nav() {
 function eventsCompleted() {
 
     console.log("     eventsCompleted");
+    
+  $('#contactForm').submit(function(e) {
+        
+        e.preventDefault();
+                               
+         $.ajax({
+            type: "POST",
+            url: 'assets/php/sendContactEmail.php',
+            data: $(this).serialize(),
+            success: function(response)
+            {
+                
+              _this.openModal('modalWindow');
+              
+              /*
+                var jsonData = JSON.parse(response);
+ 
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData.success == "1")
+                {
+                    //alert("Mail sent to: " + jsonData.emailaddress);
+                }
+                else
+                {
+                    alert('Invalid Credentials!');
+                }
+                */
+           },
+           error: function (jqXHR, textStatus, errorThrown) { alert(jqXHR.status);
+            alert(errorThrown); }
+          });
+       
 
-
-    //$( "#accordion" ).accordion({ 
-
-    //heightStyle: "content" 
-
-    //});
+        });
 
 }

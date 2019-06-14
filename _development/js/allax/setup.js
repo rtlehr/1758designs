@@ -56,14 +56,14 @@ queue.loadFile("assets/images/icon-email.png");
 queue.loadFile("assets/images/icon-top.png");
 queue.loadFile("assets/images/icon-twitter.png");
 
-queue.loadFile("assets/images/backgroundOne.jpg");
-queue.loadFile("assets/images/backgroundTwo.jpg");
+queue.loadFile("assets/images/background-womanGreyShirt.jpeg");
+queue.loadFile("assets/images/background-heatpress.jpeg");
 queue.loadFile("assets/images/backgroundThree.jpg");
 
 queue.loadFile("assets/images/headerOne.jpg");
-queue.loadFile("assets/images/headerTwo.jpg");
-queue.loadFile("assets/images/headerThree.jpg");
-queue.loadFile("assets/images/headerFour.jpg");
+queue.loadFile("assets/images/slider-designs.jpeg");
+queue.loadFile("assets/images/slider-brands.jpeg");
+queue.loadFile("assets/images/slider-events.jpeg");
 
 queue.loadFile("assets/images/headerLogoDefault.png");
 
@@ -95,7 +95,7 @@ function handleFileLoad() {
     $("#loadingTopImageHolder").css({ position: "absolute" });
     $("#loadingTopImageHolder").css({ top: 0 - (loadHeight * (prec)) });
 
-    $("#loadingText").html(prec + "% loaded");
+    $("#loadingText").html(Math.round(prec*100) + "% loaded");
 }
 
 function handleProgress(x) {}
@@ -103,14 +103,14 @@ function handleProgress(x) {}
 //Called when the total preload queue is finished
 function handleComplete() {
 
+  //Start rotating the images (might move this into a function that is called for specific sites)
+    rotateImages();
+  
     //Hide the loading bar
     $("#loadingBar").addClass("hide");
 
     //Show the website
     $("#design").removeClass("hide");
-
-    //Start rotating the images (might move this into a function that is called for specific sites)
-    rotateImages();
 
     //Activate tool tips (might move this into a function that is called for specific sites)
     $('.toolTipRight').tooltip({
@@ -140,4 +140,5 @@ function handleComplete() {
 
     _allax.setUp();
 
+  
 }

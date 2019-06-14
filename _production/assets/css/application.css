@@ -9,8 +9,11 @@
 /*
 /*	Colors
 */
-.white {
-  color: white;
+.white-color {
+  color: white !important;
+}
+.black-color {
+  color: black !important;
 }
 /*
 Generate the "width" in pixels and NO gutter
@@ -248,6 +251,7 @@ body {
   position: relative;
   width: 100vw;
   min-height: 50vh;
+  background-color: white;
 }
 /* * .allax-image applies the syles needed to create the parallax effect CSS */
 .allax-image {
@@ -267,12 +271,44 @@ body {
 }
 /*************
 *
+*  Up Icon
+*
+*************/
+#backToTop {
+  position: fixed;
+  right: 13px;
+  bottom: 10px !important;
+  height: 40px;
+  width: 40px;
+  z-index: 50;
+  cursor: pointer;
+}
+#backToTop .dot {
+  height: 40px;
+  width: 40px;
+  background-color: #ff6c2b;
+  border-radius: 50%;
+  display: inline-block;
+}
+#backToTop .dot .arrow {
+  position: relative;
+  top: 14px;
+  left: 13px;
+  border: solid white;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+/*************
+*
 *  Loading bar
 *
 *************/
 #loadingBar {
-  width: 500px;
-  height: 600px;
+  width: 250px;
+  height: 250px;
   z-index: 550;
   overflow: hidden;
 }
@@ -318,13 +354,13 @@ body {
   left: 0px;
   width: 100%;
   z-index: 100;
-  background-color: #1223ff;
+  background-color: #262626;
 }
 .headerDefault {
-  height: 70px;
+  height: 48px;
 }
 .headerInside {
-  height: 70px;
+  height: 48px;
 }
 #rotateImageOne,
 #rotateImageTwo,
@@ -358,19 +394,19 @@ h1 {
   font-weight: bold;
   padding-bottom: 15px;
   padding-top: 15px;
-  color: #59cc23;
+  color: #cbcbcb;
 }
 h2 {
   font-family: 'Verdana Bold', sans-serif;
   font-size: 1.25em;
   font-weight: bold;
-  color: #59cc23;
+  color: #cbcbcb;
 }
 h3 {
   font-family: 'Verdana Bold', sans-serif;
   font-size: 1.1em;
   font-weight: bold;
-  color: #59cc23;
+  color: #cbcbcb;
 }
 p {
   font-family: 'Verdana Bold', sans-serif;
@@ -399,12 +435,15 @@ p {
 *
 *************/
 #footer_nav {
-  background-color: #1223ff;
-  border-top: 10px solid white;
+  background-color: #262626;
+  /*border-top: 10px solid white;*/
   min-height: 25vh;
   background-position: left bottom;
   background-size: 25%;
   background-repeat: no-repeat;
+  color: white;
+}
+#footer_nav p {
   color: white;
 }
 #createdBy {
@@ -425,28 +464,29 @@ p {
   position: relative;
   padding-top: 10px;
 }
+#socialMedia div {
+  margin-right: 25px;
+}
 #socialMedia #email {
   position: relative;
   width: 104px;
   height: 104px;
-  background-image: url("../images/icon-email.png");
+  /* background-image: url("../images/icon-email.png");*/
   float: left;
+  cursor: pointer;
 }
 #socialMedia #twitter {
   position: relative;
   width: 104px;
   height: 104px;
-  background-image: url("../images/icon-twitter.png");
+  /* background-image: url("../images/icon-twitter.png");*/
   float: left;
+  cursor: pointer;
 }
-#backToTop {
-  position: fixed;
-  right: 50px;
-  bottom: -50px;
-  height: 50px;
-  width: 50px;
-  z-index: 50;
-  background-image: url("../images/icon-top.png");
+.contactText {
+  width: 75%;
+  display: block;
+  line-height: 1.6;
 }
 /*************
 *
@@ -454,14 +494,24 @@ p {
 *
 *************/
 #topImage {
-  background-image: url("../images/backgroundOne.jpg");
   height: 100vh;
 }
+#topImageMobile {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
 #image2 {
-  background-image: url("../images/backgroundTwo.jpg");
+  background-image: url("../images/background-heatpress.jpeg");
 }
 #image3 {
   background-image: url("../images/backgroundThree.jpg");
+}
+.backgoundImageOne {
+  background-image: url("../images/background-womanGreyShirt.jpeg");
+}
+.backgoundImageTwo {
+  background-image: url("../images/background-heatpress.jpeg");
 }
 /*************
 *
@@ -593,7 +643,7 @@ Safari, Opera */
   padding-top: 1em;
   background-clip: content-box;
 }
-.oneColumns .column {
+.oneColumns > .column {
   width: 100%;
   float: none;
 }
@@ -605,12 +655,12 @@ Safari, Opera */
   padding-top: 1em;
   background-clip: content-box;
 }
-.twoColumns .column {
+.twoColumns > .column {
   width: 49.591503267973856%;
   margin-right: 0.8169934640522877%;
   float: left;
 }
-.twoColumns .column:last-child {
+.twoColumns > .column:last-child {
   width: 49.591503267973856%;
   margin-right: 0%;
   float: left;
@@ -623,15 +673,9 @@ Safari, Opera */
   padding-top: 1em;
   background-clip: content-box;
 }
-.threeColumns .column {
-  width: 32.788671023965136%;
-  margin-right: 0.8169934640522877%;
-  float: left;
-}
-.threeColumns .column:last-child {
-  width: 32.788671023965136%;
-  margin-right: 0%;
-  float: left;
+.threeColumns > .column {
+  width: 100%;
+  float: none;
 }
 .fourColumns {
   position: relative;
@@ -641,12 +685,12 @@ Safari, Opera */
   padding-top: 1em;
   background-clip: content-box;
 }
-.fourColumns .column {
+.fourColumns > .column {
   width: 24.387254901960784%;
   margin-right: 0.8169934640522877%;
   float: left;
 }
-.fourColumns .column:last-child {
+.fourColumns > .column:last-child {
   width: 24.387254901960784%;
   margin-right: 0%;
   float: left;
@@ -659,12 +703,12 @@ Safari, Opera */
   padding-top: 1em;
   background-clip: content-box;
 }
-.fiveColumns .column {
+.fiveColumns > .column {
   width: 19.346405228758172%;
   margin-right: 0.8169934640522877%;
   float: left;
 }
-.fiveColumns .column:last-child {
+.fiveColumns > .column:last-child {
   width: 19.346405228758172%;
   margin-right: 0%;
   float: left;
@@ -677,20 +721,23 @@ Safari, Opera */
   height: 50px;
   width: 50px;
   z-index: 125;
-  background-image: url("../images/icon-top.png");
-  background-size: 100% 100%;
-  background-color: orange;
+}
+#mobileMenu .burgers {
+  width: 45px;
+  height: 5px;
+  background-color: #ff6c2b;
+  margin: 6px 0;
 }
 #mainMenu {
   position: fixed;
-  top: 55px;
+  top: 48px;
   left: 0px;
   width: 100%;
   font-family: 'Work Sans', sans-serif;
   font-size: 22px;
-  font-weight: bold;
-  z-index: 115;
-  background-color: #1223ff;
+  font-weight: normal;
+  z-index: 1000;
+  background-color: #262626;
   display: none;
 }
 #mainMenu ul {
@@ -711,6 +758,7 @@ Safari, Opera */
   padding-left: 25px;
   padding-bottom: 15px;
   text-decoration: none;
+  color: #ff6c2b;
 }
 /* visited link */
 #mainMenu ul li a:visited {
@@ -728,7 +776,7 @@ Safari, Opera */
   border-bottom: none;
 }
 #mainMenu ul li ul li {
-  background: #1223ff;
+  background: #262626;
   display: block;
   font-family: 'Work Sans', sans-serif;
   font-size: 16px;
@@ -760,35 +808,13 @@ Safari, Opera */
     width: 100%;
     height: 100%;
   }
-  #rotateImageOne {
-    background-image: url("../images/headerOne.jpg");
-    background-size: 100% 100%;
-    background-repeat: none;
-  }
-  #rotateImageTwo {
-    background-image: url("../images/headerTwo.jpg");
-    background-size: 100% 100%;
-    background-repeat: none;
-  }
-  #rotateImageThree {
-    background-image: url("../images/headerThree.jpg");
-    background-size: 100% 100%;
-    background-repeat: none;
-  }
-  #rotateImageFour {
-    background-image: url("../images/headerFour.jpg");
-    background-size: 100% 100%;
-    background-repeat: none;
-  }
   .headerBackgroundImage .start {
     position: relative;
     display: block;
     width: 50%;
     height: 350px;
-    top: 30%;
+    top: 55%;
     left: 100%;
-    background-color: white;
-    opacity: 0.75;
     font-weight: bold;
     padding: 1%;
   }
@@ -797,12 +823,30 @@ Safari, Opera */
     display: block;
     width: 50%;
     height: 350px;
-    top: 30%;
+    top: 55%;
     left: 48%;
-    background-color: white;
-    opacity: 0.75;
     font-weight: bold;
     padding: 1%;
+  }
+  #rotateImageOne {
+    background-image: url("../images/headerOne.jpg");
+    background-size: 100% 100%;
+    background-repeat: none;
+  }
+  #rotateImageTwo {
+    background-image: url("../images/slider-designs.jpeg");
+    background-size: 100% 100%;
+    background-repeat: none;
+  }
+  #rotateImageThree {
+    background-image: url("../images/slider-brands.jpeg");
+    background-size: 100% 100%;
+    background-repeat: none;
+  }
+  #rotateImageFour {
+    background-image: url("../images/slider-events.jpeg");
+    background-size: 100% 100%;
+    background-repeat: none;
   }
   /* events base less */
   /* * .allax-content applies the default syles needed for page content */
@@ -810,6 +854,7 @@ Safari, Opera */
     position: relative;
     width: 100vw;
     min-height: 50vh;
+    background-color: white;
   }
   /* * .allax-image applies the syles needed to create the parallax effect CSS */
   .allax-image {
@@ -832,6 +877,12 @@ Safari, Opera */
 *  Loading bar
 *
 *************/
+  #loadingBar {
+    width: 500px;
+    height: 600px;
+    z-index: 550;
+    overflow: hidden;
+  }
   #loadingTopImageHolder {
     width: 500px;
     height: 600px;
@@ -851,7 +902,7 @@ Safari, Opera */
   }
   .headerInside {
     height: 70px;
-    background-color: #1223ff;
+    background-color: #262626;
   }
   /*************
 *
@@ -924,11 +975,191 @@ Safari, Opera */
 *
 *************/
   #socialMedia #email {
-    cursor: pointer;
     float: left;
   }
   #socialMedia #twitter {
+    float: left;
+  }
+  /*************
+*
+*  Background images
+*
+*************/
+  #topImageMobile {
+    display: none;
+  }
+  /*************
+*
+*  Sliding images
+*
+*************/
+  .pictureFrame {
+    border-style: 14px solid white !important;
+    -webkit-box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, 0.4) !important;
+    -moz-box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 10px 10px 10px 10px !important;
+    -moz-border-radius: 10px 10px 10px 10px !important;
+    -webkit-border-radius: 10px 10px 10px 10px !important;
+    border: 16px solid #f7f7f7;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  #leftOne {
+    position: absolute;
+    top: 350px;
+    left: -400px;
+    height: 300px;
+    width: 300px;
+    background-color: #999;
+    -ms-transform: rotate(-15deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-15deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-15deg);
+  }
+  #rightOne {
+    position: absolute;
+    top: 350px;
+    left: calc(101%);
+    height: 300px;
+    width: 300px;
+    background-color: #999;
+    -ms-transform: rotate(10deg);
+    /* IE 9 */
+    -webkit-transform: rotate(10deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(10deg);
+  }
+  #leftTwo {
+    position: absolute;
+    top: 650px;
+    left: -400px;
+    height: 300px;
+    width: 300px;
+    background-color: #999;
+    -ms-transform: rotate(25deg);
+    /* IE 9 */
+    -webkit-transform: rotate(25deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(25deg);
+  }
+  #rightTwo {
+    position: absolute;
+    top: 650px;
+    left: calc(101%);
+    height: 300px;
+    width: 300px;
+    background-color: #999;
+    -ms-transform: rotate(-10deg);
+    /*
+IE 9 */
+    -webkit-transform: rotate(-10deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-10deg);
+  }
+  /*************
+*
+*  Loading bar
+*
+*************/
+  #loadingTopImageHolder {
+    width: 500px;
+    height: 600px;
+  }
+  /*************
+*
+*  Header
+*
+*************/
+  #headHeight {
+    position: fixed;
+    height: 90vh;
+    z-index: 25;
+  }
+  .headerDefault {
+    height: 100vh;
+  }
+  .headerInside {
+    height: 70px;
+    background-color: #262626;
+  }
+  /*************
+*
+*  Logo
+*
+*************/
+  #logo {
+    position: relative;
+    display: block;
+    z-index: 110;
     cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .logoDefault {
+    top: 25px;
+    left: 25px;
+    width: 500px;
+    height: 500px;
+    background-size: contain;
+    background-image: url("../images/headerLogoDefault.png");
+    background-repeat: no-repeat;
+  }
+  .logoInside {
+    top: 10px;
+    left: 15px;
+    width: 400px;
+    height: 50px;
+    /* ADD THIS BACK FOR FINAL DESIGN
+	background-image: url(
+		"../images/headerLogoInside.png"
+	);
+	*/
+  }
+  /*************
+*
+*  Page Design
+*
+*************/
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+    padding-bottom: .9em;
+    padding-top: .9em;
+  }
+  h2 {
+    font-size: 1.75em;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+  /*************
+*
+*  Content layout
+*
+*************/
+  /*************
+*
+*  Modal windows
+*
+*************/
+  /*************
+*
+*  Footer
+*
+*************/
+  #socialMedia #email {
+    float: left;
+  }
+  #socialMedia #twitter {
     float: left;
   }
   /*************
@@ -1041,32 +1272,32 @@ IE 9 */
 *************/
   .oneColumns {
     position: relative;
-    width: 80%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
     min-height: 50vh;
   }
-  .oneColumns .column {
+  .oneColumns > .column {
     width: 100%;
     float: none;
   }
   .twoColumns {
     position: relative;
-    width: 80%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
     min-height: 50vh;
   }
-  .twoColumns .column {
+  .twoColumns > .column {
     width: 49.591503267973856%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .twoColumns .column:last-child {
+  .twoColumns > .column:last-child {
     width: 49.591503267973856%;
     margin-right: 0%;
     float: left;
@@ -1078,14 +1309,14 @@ IE 9 */
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
-    min-height: 50vh;
+    /*min-height:50vh;*/
   }
-  .threeColumns .column {
+  .threeColumns > .column {
     width: 32.788671023965136%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .threeColumns .column:last-child {
+  .threeColumns > .column:last-child {
     width: 32.788671023965136%;
     margin-right: 0%;
     float: left;
@@ -1099,12 +1330,12 @@ IE 9 */
     background-clip: content-box;
     min-height: 50vh;
   }
-  .fourColumns .column {
+  .fourColumns > .column {
     width: 24.387254901960784%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .fourColumns .column:last-child {
+  .fourColumns > .column:last-child {
     width: 24.387254901960784%;
     margin-right: 0%;
     float: left;
@@ -1118,12 +1349,12 @@ IE 9 */
     background-clip: content-box;
     min-height: 50vh;
   }
-  .fiveColumns .column {
+  .fiveColumns > .column {
     width: 19.346405228758172%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .fiveColumns .column:last-child {
+  .fiveColumns > .column:last-child {
     width: 19.346405228758172%;
     margin-right: 0%;
     float: left;
@@ -1139,19 +1370,20 @@ IE 9 */
     text-align: right;
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
-    font-weight: bold;
     z-index: 115;
     background-color: transparent;
   }
   .mainMenuDefault {
-    top: 13px;
-    left: 5%;
-    width: 90%;
+    top: 0px !important;
+    left: 0px !important;
+    width: 100% !important;
+    text-shadow: 2px 2px 8px #000000;
   }
   .mainMenuInside {
-    top: 13px;
+    top: 13px !important;
     left: 5%;
     width: 90%;
+    background-color: rgba(0, 0, 0, 0) !important;
   }
   #mainMenu ul {
     z-index: 120;
@@ -1171,10 +1403,9 @@ IE 9 */
     padding-right: 15px;
     text-decoration: none;
     color: #ff6c2b;
-    text-shadow: 2px 2px 8px #000;
   }
   #mainMenu ul li a:hover {
-    color: #ff6c2b;
+    color: #c43c00;
   }
   /* visited link */
   #mainMenu ul li a:visited {
@@ -1194,7 +1425,7 @@ link */
     display: block;
   }
   #mainMenu ul li ul li {
-    background: #1e28b3;
+    background: #324c8d;
     display: block;
     color: #fff;
     font-family: 'Work Sans', sans-serif;
@@ -1204,36 +1435,59 @@ link */
     text-align: left;
   }
   #mainMenu ul li ul li:hover {
-    background: #59cc23;
+    background: #cbcbcb;
   }
 }
 /*
 	Desktop layout
 */
 @media only screen and (min-width: 76.5em) {
-  .headerBackgroundImage .start {
+  #headerImages h2 {
+    font-family: 'Verdana Bold', sans-serif;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #cbcbcb;
+    font-size: 3rem;
+  }
+  .imageGradient {
     position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    /*background-color: pink;*/
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.4+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#66000000', GradientType=0);
+    /* IE6-9 */
+  }
+  .headerBackgroundImage .start {
+    position: absolute;
     display: block;
     width: 50%;
     height: 350px;
-    top: 30%;
+    top: 55%;
     left: 100%;
-    background-color: white;
-    opacity: 0.75;
     font-weight: bold;
     padding: 1%;
+    z-index: 100;
   }
   .headerBackgroundImage .finish {
-    position: relative;
+    position: absolute;
     display: block;
     width: 50%;
     height: 350px;
-    top: 30%;
+    top: 55%;
     left: 48%;
-    background-color: white;
-    opacity: 0.75;
     font-weight: bold;
     padding: 1%;
+    z-index: 100;
   }
   /* events base less */
   /* * .allax-content applies the default syles needed for page content */
@@ -1241,7 +1495,6 @@ link */
     display: table;
     position: relative;
     width: 100vw;
-    /*min-height: 50vh;*/
   }
   /* * .allax-image applies the syles needed to create the parallax effect CSS */
   .allax-image {
@@ -1275,7 +1528,7 @@ in the allax.js code if the site is viewed on a mobile device */
 *
 *************/
   #header {
-    background-color: #1223ff;
+    background-color: #999999;
   }
   .headerDefault {
     height: 100vh;
@@ -1288,6 +1541,7 @@ to the element */
   }
   .headerInside {
     height: 70px;
+    background-color: #262626 !important;
   }
   /*************
 *
@@ -1344,32 +1598,32 @@ to the element */
 *************/
   .oneColumns {
     position: relative;
-    width: 60%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
     min-height: 50vh;
   }
-  .oneColumns .column {
+  .oneColumns > .column {
     width: 100%;
     float: none;
   }
   .twoColumns {
     position: relative;
-    width: 60%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
     min-height: 50vh;
   }
-  .twoColumns .column {
+  .twoColumns > .column {
     width: 49.591503267973856%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .twoColumns .column:last-child {
+  .twoColumns > .column:last-child {
     width: 49.591503267973856%;
     margin-right: 0%;
     float: left;
@@ -1381,55 +1635,113 @@ to the element */
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
-    min-height: 50vh;
+    /*min-height:50vh;*/
   }
-  .threeColumns .column {
+  .threeColumns > .column {
     width: 32.788671023965136%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .threeColumns .column:last-child {
+  .threeColumns > .column:last-child {
     width: 32.788671023965136%;
     margin-right: 0%;
     float: left;
   }
   .fourColumns {
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
     min-height: 50vh;
   }
-  .fourColumns .column {
+  .fourColumns > .column {
     width: 24.387254901960784%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .fourColumns .column:last-child {
+  .fourColumns > .column:last-child {
     width: 24.387254901960784%;
     margin-right: 0%;
     float: left;
   }
   .fiveColumns {
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
     min-height: 50vh;
   }
-  .fiveColumns .column {
+  .fiveColumns > .column {
     width: 19.346405228758172%;
     margin-right: 0.8169934640522877%;
     float: left;
   }
-  .fiveColumns .column:last-child {
+  .fiveColumns > .column:last-child {
     width: 19.346405228758172%;
     margin-right: 0%;
     float: left;
+  }
+  /*************
+*
+*  Contact form
+*
+*************/
+  #contactForm .column {
+    padding-bottom: 15px;
+  }
+  .formControl {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  }
+  textarea.formControl {
+    height: auto;
+  }
+  .btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #ff6c2b;
+    border-color: #c43c00;
   }
   #mobileMenu {
     display: none;
@@ -1437,7 +1749,6 @@ to the element */
   #mainMenu {
     font-family: 'Work Sans', sans-serif;
     font-size: 26px;
-    font-weight: bold;
   }
   /* visited link */
   /* selected link */

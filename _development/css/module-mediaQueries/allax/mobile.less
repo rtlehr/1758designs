@@ -4,6 +4,7 @@
     position: relative;
     width: 100vw;
     min-height: 50vh;
+  background-color:white;
 }
 
 
@@ -26,4 +27,41 @@
     min-height: 50vh;
     /* Scale it nicely to the element */
     background-size: 100% 100%;
+}
+
+/*************
+*
+*  Up Icon
+*
+*************/
+
+#backToTop {
+	position: fixed;
+	right: 13px;
+	bottom: 10px !important;
+	height: 40px;
+	width: 40px;
+	z-index: 50;
+  cursor: pointer;
+}
+
+#backToTop .dot
+{
+  height: 40px;
+  width: 40px;
+  background-color: @colorAlt;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#backToTop .dot .arrow {
+	position: relative;
+	top: 14px;
+	left: 13px;
+	border: solid white;
+	border-width: 0 5px 5px 0;
+	display: inline-block;
+	padding: 5px;
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
 }

@@ -1,38 +1,54 @@
 /*Rotate Images
  */
 
-function rotateImages() {
+function rotateImages()
+{
+  
+    var rotateImagesArray = [];
+        
+      for(var count=0;count<($(".headerBackgroundImage").length);count++)
+      {
+        
+        rotateImagesArray.push($(".headerBackgroundImage").eq(count));
+        
+        $(rotateImagesArray[rotateImagesArray.length-1]).css("display","none");
+                
+      }
+  
+    $(rotateImagesArray[rotateImagesArray.length-1]).find(".start").switchClass("start", "finish", 0);
+     
+   $(rotateImagesArray[rotateImagesArray.length-1]).css("display","block");
 
-    $(".rotateImages").each(function(index) {
+  if(rotateImagesArray.length > 1)
+    {
 
-        var RI = $(this);
+      setInterval(function(){
+                
+        rotateImagesArray.push(rotateImagesArray.shift());
 
-        var count = 0;
+        for(var count=0;count<rotateImagesArray.length;count++)
+        {
+                    
+          $(rotateImagesArray[count]).find(".finish").switchClass("finish", "start", 0);
+          
+        }
 
-        $(RI).children().eq(count).children().eq(0).delay(500).switchClass("start", "finish", 1000);
+       $(rotateImagesArray[rotateImagesArray.length-1]).fadeToggle("slow", "linear",function(){
+                    
+         $(this).find(".start").switchClass("start", "finish", 1000);
+         
+          for(var count=0;count<rotateImagesArray.length-1;count++)
+          {
+            
+            $(rotateImagesArray[count]).css("display","none");
+            
+          }
 
-        setInterval(function() {
+       });
 
-            //Fade Out
-            $(RI).children().eq(count).fadeToggle("slow", "linear");
+      },7000);
 
-            $(RI).children().eq(count).children().eq(0).delay(500).switchClass("finish", "start", 0);
+    }
 
-            //Fade In
-            if (count == ($(RI).children().length - 1)) {
-
-                count = -1;
-
-            }
-
-            $(RI).children().eq(count + 1).fadeToggle("slow", "linear");
-
-            $(RI).children().eq(count + 1).children().eq(0).delay(500).switchClass("start", "finish", 1000);
-
-            count++;
-
-        }, 3000);
-
-    });
-
+  
 }

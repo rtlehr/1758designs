@@ -6,20 +6,25 @@
     height: 50px;
     width: 50px;
     z-index: 125;
-    background-image: url("../images/icon-top.png");
-    background-size: 100% 100%;
-    background-color: orange;
+}
+
+#mobileMenu .burgers
+{
+  width: 45px;
+  height: 5px;
+  background-color: @colorAlt;
+  margin: 6px 0;
 }
 
 #mainMenu {
     position: fixed;
-    top: 55px;
+    top: 48px;
     left: 0px;
     width: 100%;
     font-family: @mainMenuFontFamily;
     font-size: 22px;
-    font-weight: bold;
-    z-index: 115;
+    font-weight: normal;
+    z-index: 1000;
     background-color: @colorOne;
     display: none;
 }
@@ -49,6 +54,7 @@
     padding-left: 25px;
     padding-bottom: 15px;
     text-decoration: none;
+    color: @colorAlt;
 }
 
 #mainMenu ul li a:hover {}

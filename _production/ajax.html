@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="utf-8" />
+<title>Ajax Example Using jQuery</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#signal").click(function(){
+        indata = $("#xinput").val();
+        $.post("login.php", {myArg:indata}, function(response){
+            $("#output p#target").html(response);
+        });
+    });
+});
+</script>
+
+</head>
+<body>
+
+<input id="xinput" value="Enter your name here" />
+<div   id="signal">This is not a link, but Click Me Anyway!</div>
+<div   id="output">
+   <p  id="static">This element remains unchanged</p>
+   <p  id="target">This element gets the AJAX response</p>
+</div>
+
+</body>
+</html>

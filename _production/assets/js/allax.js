@@ -441,17 +441,21 @@
                 console.log("Haven't scrolled in 250ms!");
 
                 _this.startScrolling = true;
-
+              
                 for (var key in _this.contentTopPos) {
-
+/*
+                    console.log("--low: " + (Number(key) - (_this.sectionCallbackBuffer / 2)));
+                    console.log("--- scrollTop: " + $(window).scrollTop());
+                    console.log("--high: " + (Number(key) + (_this.sectionCallbackBuffer / 2)));
+                  */
+                  
                     //if the number in the key is >= than the scrollTop position, than check if there is a function to run for that keys value
-
                     if ($(window).scrollTop() >= (Number(key) - (_this.sectionCallbackBuffer / 2)) && $(window).scrollTop() <= (Number(key) + (_this.sectionCallbackBuffer / 2))) {
                         //Check to see if there is a section function, if there is, call it
-                        if (typeof window[_this.contentTopPos[key].id] == 'function' && !_this.contentTopPos[key].played) {
-
+                        
+                        if (typeof window[_this.contentTopPos[key].id] == 'function') {
+                                                     
                             window[_this.contentTopPos[key].id]();
-                            _this.contentTopPos[key].played = true;
 
                         }
 
@@ -936,40 +940,56 @@
 /*Rotate Images
  */
 
-function rotateImages() {
+function rotateImages()
+{
+  
+    var rotateImagesArray = [];
+        
+      for(var count=0;count<($(".headerBackgroundImage").length);count++)
+      {
+        
+        rotateImagesArray.push($(".headerBackgroundImage").eq(count));
+        
+        $(rotateImagesArray[rotateImagesArray.length-1]).css("display","none");
+                
+      }
+  
+    $(rotateImagesArray[rotateImagesArray.length-1]).find(".start").switchClass("start", "finish", 0);
+     
+   $(rotateImagesArray[rotateImagesArray.length-1]).css("display","block");
 
-    $(".rotateImages").each(function(index) {
+  if(rotateImagesArray.length > 1)
+    {
 
-        var RI = $(this);
+      setInterval(function(){
+                
+        rotateImagesArray.push(rotateImagesArray.shift());
 
-        var count = 0;
+        for(var count=0;count<rotateImagesArray.length;count++)
+        {
+                    
+          $(rotateImagesArray[count]).find(".finish").switchClass("finish", "start", 0);
+          
+        }
 
-        $(RI).children().eq(count).children().eq(0).delay(500).switchClass("start", "finish", 1000);
+       $(rotateImagesArray[rotateImagesArray.length-1]).fadeToggle("slow", "linear",function(){
+                    
+         $(this).find(".start").switchClass("start", "finish", 1000);
+         
+          for(var count=0;count<rotateImagesArray.length-1;count++)
+          {
+            
+            $(rotateImagesArray[count]).css("display","none");
+            
+          }
 
-        setInterval(function() {
+       });
 
-            //Fade Out
-            $(RI).children().eq(count).fadeToggle("slow", "linear");
+      },7000);
 
-            $(RI).children().eq(count).children().eq(0).delay(500).switchClass("finish", "start", 0);
+    }
 
-            //Fade In
-            if (count == ($(RI).children().length - 1)) {
-
-                count = -1;
-
-            }
-
-            $(RI).children().eq(count + 1).fadeToggle("slow", "linear");
-
-            $(RI).children().eq(count + 1).children().eq(0).delay(500).switchClass("start", "finish", 1000);
-
-            count++;
-
-        }, 3000);
-
-    });
-
+  
 }
 /*********************
  * 
@@ -1029,14 +1049,14 @@ queue.loadFile("assets/images/icon-email.png");
 queue.loadFile("assets/images/icon-top.png");
 queue.loadFile("assets/images/icon-twitter.png");
 
-queue.loadFile("assets/images/backgroundOne.jpg");
-queue.loadFile("assets/images/backgroundTwo.jpg");
+queue.loadFile("assets/images/background-womanGreyShirt.jpeg");
+queue.loadFile("assets/images/background-heatpress.jpeg");
 queue.loadFile("assets/images/backgroundThree.jpg");
 
 queue.loadFile("assets/images/headerOne.jpg");
-queue.loadFile("assets/images/headerTwo.jpg");
-queue.loadFile("assets/images/headerThree.jpg");
-queue.loadFile("assets/images/headerFour.jpg");
+queue.loadFile("assets/images/slider-designs.jpeg");
+queue.loadFile("assets/images/slider-brands.jpeg");
+queue.loadFile("assets/images/slider-events.jpeg");
 
 queue.loadFile("assets/images/headerLogoDefault.png");
 
@@ -1068,7 +1088,7 @@ function handleFileLoad() {
     $("#loadingTopImageHolder").css({ position: "absolute" });
     $("#loadingTopImageHolder").css({ top: 0 - (loadHeight * (prec)) });
 
-    $("#loadingText").html(prec + "% loaded");
+    $("#loadingText").html(Math.round(prec*100) + "% loaded");
 }
 
 function handleProgress(x) {}
@@ -1076,14 +1096,14 @@ function handleProgress(x) {}
 //Called when the total preload queue is finished
 function handleComplete() {
 
+  //Start rotating the images (might move this into a function that is called for specific sites)
+    rotateImages();
+  
     //Hide the loading bar
     $("#loadingBar").addClass("hide");
 
     //Show the website
     $("#design").removeClass("hide");
-
-    //Start rotating the images (might move this into a function that is called for specific sites)
-    rotateImages();
 
     //Activate tool tips (might move this into a function that is called for specific sites)
     $('.toolTipRight').tooltip({
@@ -1113,4 +1133,5 @@ function handleComplete() {
 
     _allax.setUp();
 
+  
 }

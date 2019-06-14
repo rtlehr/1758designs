@@ -5,8 +5,8 @@
 *************/
 
 #loadingBar { 
-    width: 500px;
-    height: 600px;
+    width: 250px;
+    height: 250px;
     z-index: 550;
     overflow: hidden;
 }
@@ -65,11 +65,11 @@
 }
 
 .headerDefault {
-    height: 70px;
+    height: 48px;
 }
 
 .headerInside {
-    height: 70px;
+    height: 48px;
 }
 
 #headerImages {}
@@ -164,12 +164,19 @@ p{
 
 #footer_nav {
     background-color: @colorOne;
-    border-top: 10px solid white;
+    /*border-top: 10px solid white;*/
     min-height: 25vh;
     background-position: left bottom;
     background-size: 25%;
     background-repeat: no-repeat;
     color: white;
+}
+
+#footer_nav p
+{
+
+  color: white;
+  
 }
 
 #createdBy {
@@ -192,30 +199,33 @@ p{
     padding-top: 10px;
 }
 
+#socialMedia div
+{
+  margin-right: 25px;  
+}
+
 #socialMedia #email {
     position: relative;
     width: 104px;
     height: 104px;
-    background-image: url("../images/icon-email.png");
+   /* background-image: url("../images/icon-email.png");*/
     float: left;
+    cursor: pointer;
 }
 
 #socialMedia #twitter {
     position: relative;
     width: 104px;
     height: 104px;
-    background-image: url("../images/icon-twitter.png");
+   /* background-image: url("../images/icon-twitter.png");*/
     float: left;
+    cursor: pointer;
 }
 
-#backToTop {
-  position: fixed;
-  right: 50px;
-  bottom: -50px;
-  height: 50px;
-  width: 50px;
-  z-index: 50;
-  background-image: url("../images/icon-top.png");
+.contactText {
+	width: 75%;
+	display: block;
+	line-height: 1.6;
 }
 
 /*************
@@ -225,16 +235,32 @@ p{
 *************/
 
 #topImage {
-    background-image: url("../images/backgroundOne.jpg");
     height: 100vh;
 }
 
+#topImageMobile
+{
+  display: block;
+  width:200px;
+  height:200px;
+}
+
 #image2 {
-    background-image: url("../images/backgroundTwo.jpg");
+    background-image: url("../images/background-heatpress.jpeg");
 }
 
 #image3 {
     background-image: url("../images/backgroundThree.jpg");
+}
+
+.backgoundImageOne
+{
+  background-image: url("../images/background-womanGreyShirt.jpeg");
+}
+
+.backgoundImageTwo
+{
+  background-image: url("../images/background-heatpress.jpeg");
 }
 
 /*************
@@ -415,11 +441,8 @@ Safari, Opera */
     padding-top: 1em;
     background-clip: content-box;
     .equalColumns(@desktopBreak;
-    4;
-    10;
-    @float: left;
-    0;
-    true);
+    12;
+    );
 }
 
 .fourColumns {

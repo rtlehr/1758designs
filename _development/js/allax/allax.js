@@ -441,17 +441,21 @@
                 console.log("Haven't scrolled in 250ms!");
 
                 _this.startScrolling = true;
-
+              
                 for (var key in _this.contentTopPos) {
-
+/*
+                    console.log("--low: " + (Number(key) - (_this.sectionCallbackBuffer / 2)));
+                    console.log("--- scrollTop: " + $(window).scrollTop());
+                    console.log("--high: " + (Number(key) + (_this.sectionCallbackBuffer / 2)));
+                  */
+                  
                     //if the number in the key is >= than the scrollTop position, than check if there is a function to run for that keys value
-
                     if ($(window).scrollTop() >= (Number(key) - (_this.sectionCallbackBuffer / 2)) && $(window).scrollTop() <= (Number(key) + (_this.sectionCallbackBuffer / 2))) {
                         //Check to see if there is a section function, if there is, call it
-                        if (typeof window[_this.contentTopPos[key].id] == 'function' && !_this.contentTopPos[key].played) {
-
+                        
+                        if (typeof window[_this.contentTopPos[key].id] == 'function') {
+                                                     
                             window[_this.contentTopPos[key].id]();
-                            _this.contentTopPos[key].played = true;
 
                         }
 

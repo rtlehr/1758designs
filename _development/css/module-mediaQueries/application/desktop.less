@@ -23,7 +23,7 @@
 #headHeight {}
 
 #header {
-    background-color: @colorOne;
+    background-color: #999999;
 }
 
 .headerDefault { 
@@ -39,6 +39,7 @@ to the element */
 
 .headerInside {
     height: 70px;
+   background-color: @colorOne !important;
 }
 
 /*************
@@ -61,8 +62,6 @@ to the element */
 .logoDefault {}
 
 .logoInside {}
-
-#backToTop {}
 
 /*************
 *
@@ -163,7 +162,7 @@ body .ui-tooltip {}
 
 .oneColumns {
     position: relative;
-    width: 60%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -179,7 +178,7 @@ body .ui-tooltip {}
 
 .twoColumns {
     position: relative;
-    width: 60%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -200,7 +199,7 @@ body .ui-tooltip {}
     overflow: hidden;
     padding-top: 1em;
     background-clip: content-box;
-    min-height:50vh;
+    /*min-height:50vh;*/
     .equalColumns(@desktopBreak;
     4;
     10;
@@ -211,7 +210,7 @@ body .ui-tooltip {}
 
 .fourColumns {
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -227,7 +226,7 @@ body .ui-tooltip {}
 
 .fiveColumns {
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
     padding-top: 1em;
@@ -239,4 +238,69 @@ body .ui-tooltip {}
     @float: left;
     0;
     true);
+}
+
+/*************
+*
+*  Contact form
+*
+*************/
+
+#contactForm .column
+{
+  padding-bottom: 15px;  
+}
+
+.formControl {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+
+textarea.formControl {
+	height: auto;
+}
+
+.btn {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: @colorAlt;
+	border-color: @colorAltDarken;
 }

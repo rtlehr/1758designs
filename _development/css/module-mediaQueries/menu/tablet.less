@@ -10,21 +10,22 @@
     text-align: right;
     font-family: @mainMenuFontFamily;
     font-size: 18px;
-    font-weight: bold;
     z-index: 115;
     background-color: transparent;
 }
 
 .mainMenuDefault {
-    top: 13px;
-    left: 5%;
-    width: 90%;
+	top: 0px !important;
+	left: 0px !important;
+	width: 100% !important;
+  text-shadow: 2px 2px 8px #000000;
 }
 
 .mainMenuInside {
-    top: 13px;
+    top: 13px !important;
     left: 5%;
     width: 90%;
+  background-color:rgba(0,0,0,0.0) !important;
 }
 
 #mainMenu ul {
@@ -48,11 +49,10 @@
     padding-right: 15px;
     text-decoration: none;
     color: @colorAlt;
-    text-shadow: 2px 2px 8px #000;
 }
 
 #mainMenu ul li a:hover {
-    color: @colorAlt;
+    color: @colorAltDarken;
 }
 
 

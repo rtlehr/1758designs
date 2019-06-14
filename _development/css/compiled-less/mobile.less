@@ -83,6 +83,7 @@
     position: relative;
     width: 100vw;
     min-height: 50vh;
+  background-color:white;
 }
 
 
@@ -106,6 +107,44 @@
     /* Scale it nicely to the element */
     background-size: 100% 100%;
 }
+
+/*************
+*
+*  Up Icon
+*
+*************/
+
+#backToTop {
+	position: fixed;
+	right: 13px;
+	bottom: 10px !important;
+	height: 40px;
+	width: 40px;
+	z-index: 50;
+  cursor: pointer;
+}
+
+#backToTop .dot
+{
+  height: 40px;
+  width: 40px;
+  background-color: @colorAlt;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#backToTop .dot .arrow {
+	position: relative;
+	top: 14px;
+	left: 13px;
+	border: solid white;
+	border-width: 0 5px 5px 0;
+	display: inline-block;
+	padding: 5px;
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+
 /*************
 *
 *  Loading bar
@@ -113,8 +152,8 @@
 *************/
 
 #loadingBar { 
-    width: 500px;
-    height: 600px;
+    width: 250px;
+    height: 250px;
     z-index: 550;
     overflow: hidden;
 }
@@ -173,11 +212,11 @@
 }
 
 .headerDefault {
-    height: 70px;
+    height: 48px;
 }
 
 .headerInside {
-    height: 70px;
+    height: 48px;
 }
 
 #headerImages {}
@@ -272,12 +311,19 @@ p{
 
 #footer_nav {
     background-color: @colorOne;
-    border-top: 10px solid white;
+    /*border-top: 10px solid white;*/
     min-height: 25vh;
     background-position: left bottom;
     background-size: 25%;
     background-repeat: no-repeat;
     color: white;
+}
+
+#footer_nav p
+{
+
+  color: white;
+  
 }
 
 #createdBy {
@@ -300,30 +346,33 @@ p{
     padding-top: 10px;
 }
 
+#socialMedia div
+{
+  margin-right: 25px;  
+}
+
 #socialMedia #email {
     position: relative;
     width: 104px;
     height: 104px;
-    background-image: url("../images/icon-email.png");
+   /* background-image: url("../images/icon-email.png");*/
     float: left;
+    cursor: pointer;
 }
 
 #socialMedia #twitter {
     position: relative;
     width: 104px;
     height: 104px;
-    background-image: url("../images/icon-twitter.png");
+   /* background-image: url("../images/icon-twitter.png");*/
     float: left;
+    cursor: pointer;
 }
 
-#backToTop {
-  position: fixed;
-  right: 50px;
-  bottom: -50px;
-  height: 50px;
-  width: 50px;
-  z-index: 50;
-  background-image: url("../images/icon-top.png");
+.contactText {
+	width: 75%;
+	display: block;
+	line-height: 1.6;
 }
 
 /*************
@@ -333,16 +382,32 @@ p{
 *************/
 
 #topImage {
-    background-image: url("../images/backgroundOne.jpg");
     height: 100vh;
 }
 
+#topImageMobile
+{
+  display: block;
+  width:200px;
+  height:200px;
+}
+
 #image2 {
-    background-image: url("../images/backgroundTwo.jpg");
+    background-image: url("../images/background-heatpress.jpeg");
 }
 
 #image3 {
     background-image: url("../images/backgroundThree.jpg");
+}
+
+.backgoundImageOne
+{
+  background-image: url("../images/background-womanGreyShirt.jpeg");
+}
+
+.backgoundImageTwo
+{
+  background-image: url("../images/background-heatpress.jpeg");
 }
 
 /*************
@@ -523,11 +588,8 @@ Safari, Opera */
     padding-top: 1em;
     background-clip: content-box;
     .equalColumns(@desktopBreak;
-    4;
-    10;
-    @float: left;
-    0;
-    true);
+    12;
+    );
 }
 
 .fourColumns {
@@ -567,20 +629,25 @@ Safari, Opera */
     height: 50px;
     width: 50px;
     z-index: 125;
-    background-image: url("../images/icon-top.png");
-    background-size: 100% 100%;
-    background-color: orange;
+}
+
+#mobileMenu .burgers
+{
+  width: 45px;
+  height: 5px;
+  background-color: @colorAlt;
+  margin: 6px 0;
 }
 
 #mainMenu {
     position: fixed;
-    top: 55px;
+    top: 48px;
     left: 0px;
     width: 100%;
     font-family: @mainMenuFontFamily;
     font-size: 22px;
-    font-weight: bold;
-    z-index: 115;
+    font-weight: normal;
+    z-index: 1000;
     background-color: @colorOne;
     display: none;
 }
@@ -610,6 +677,7 @@ Safari, Opera */
     padding-left: 25px;
     padding-bottom: 15px;
     text-decoration: none;
+    color: @colorAlt;
 }
 
 #mainMenu ul li a:hover {}
