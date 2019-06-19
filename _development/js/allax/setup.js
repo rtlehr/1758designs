@@ -45,29 +45,37 @@ queue.on("complete", handleComplete, this);
 //queue.on("progress", handleProgress, this);
 
 //Load the queue with assets
-queue.loadFile("assets/images/activityLeftOne.jpg");
-queue.loadFile("assets/images/activityLeftTwo.jpg");
-queue.loadFile("assets/images/activityLeftThree.jpg");
-queue.loadFile("assets/images/activityRightOne.jpg");
-queue.loadFile("assets/images/activityRightTwo.jpg");
-queue.loadFile("assets/images/activityRightThree.jpg");
-
 queue.loadFile("assets/images/icon-email.png");
-queue.loadFile("assets/images/icon-top.png");
 queue.loadFile("assets/images/icon-twitter.png");
 
-queue.loadFile("assets/images/background-womanGreyShirt.jpeg");
-queue.loadFile("assets/images/background-heatpress.jpeg");
-queue.loadFile("assets/images/backgroundThree.jpg");
+queue.loadFile("assets/images/backgroundImageOne.jpg");
+queue.loadFile("assets/images/backgroundImageOTwo.jpg");
+queue.loadFile("assets/images/backgroundImageThree.jpg");
+queue.loadFile("assets/images/backgroundImageFour.jpg");
 
-queue.loadFile("assets/images/headerOne.jpg");
-queue.loadFile("assets/images/slider-designs.jpeg");
-queue.loadFile("assets/images/slider-brands.jpeg");
-queue.loadFile("assets/images/slider-events.jpeg");
+queue.loadFile("assets/images/slider-designs.jpg");
+queue.loadFile("assets/images/slider-brands.jpg");
+queue.loadFile("assets/images/slider-events.jpg");
+queue.loadFile("assets/images/slider-shenandoahValley.jpg");
 
 queue.loadFile("assets/images/headerLogoDefault.png");
 
-queue.loadFile("assets/images/rtlLogo.jpg");
+queue.loadFile("assets/images/pageImage-643One.jpg");
+queue.loadFile("assets/images/pageImage-643Two.jpg");
+queue.loadFile("assets/images/pageImage-643Three.jpg");
+
+queue.loadFile("assets/images/pageImage-customDesignOne.jpg");
+queue.loadFile("assets/images/pageImage-customDesignTwo.jpg");
+queue.loadFile("assets/images/pageImage-customDesignThree.jpg");
+
+queue.loadFile("assets/images/pageImage-eventsOne.jpg");
+queue.loadFile("assets/images/pageImage-eventsTwo.jpg");
+queue.loadFile("assets/images/pageImage-eventsThree.jpg");
+
+queue.loadFile("assets/images/pageImage-brandsOne.jpg");
+queue.loadFile("assets/images/pageImage-brandsTwo.jpg");
+queue.loadFile("assets/images/pageImage-brandsThree.jpg");
+
 
 //Total number of assets, used for the loading bar (need to check if there is a way to get this info from createjs.LoadQueue)
 var assetsTotal = queue.getItems().length;

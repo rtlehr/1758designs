@@ -15,7 +15,7 @@ $content = "<strong>Name: </strong>" . $name . "<p/><strong>email: </strong>"  .
 //$toAddress = "info@1758designs.com";
 //$toName = "1758 Designs";
 
-$toAddress = "ross.lehr@gmail.com";
+$toAddress = "info@1758designs.com";
 $toName = "1758 Designs";
 
 //error_reporting(E_ALL);
@@ -42,7 +42,7 @@ $mail->Port       = 25;                    // set the SMTP port for the GMAIL se
 $mail->Username   = "info@1758designs.com"; // SMTP account username
 $mail->Password   = "Ba!t0ri0!es";        // SMTP account password
 
-$mail->SetFrom($email, $name);
+$mail->SetFrom("interestForm@1758designs.com", "Intrest form");
 
 $mail->AddReplyTo($email, $name);
 
@@ -51,9 +51,6 @@ $mail->Subject    = "Interested in Service - " . $name;
 //$mail->AltBody    = $content; // optional, comment out and test
 
 $mail->MsgHTML($content);
-
-//$email = "ross.lehr@gmail.com";
-//$address = $email;
 
 $mail->AddAddress($toAddress, $toName);
 

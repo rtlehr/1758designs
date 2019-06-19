@@ -41,29 +41,11 @@ $(document).ready(function(){
         alert("submit clicked");
                
         e.preventDefault();
-        
-       /*  $.ajax({
-            type: "POST",
-            url: 'mail.php',
-            data: $(this).serialize(),
-            success: function(response)
-            {
-                var jsonData = JSON.parse(response);
- 
-                // user is logged in successfully in the back-end
-                // let's redirect
-                if (jsonData.success == "1")
-                {
-                    alert("Mail sent to: " + jsonData.emailaddress);
-                }
-                else
-                {
-                    alert('Invalid Credentials!');
-                }
-           }
-       });
-       */
+
      });
+
+
+
   
   
 });
@@ -139,8 +121,19 @@ var topBackgroundimageArray = [];
 
 topBackgroundimageArray.push("backgoundImageOne");
 topBackgroundimageArray.push("backgoundImageTwo");
+topBackgroundimageArray.push("backgoundImageThree");
+topBackgroundimageArray.push("backgoundImageFour");
 
-$("#topImage").addClass(topBackgroundimageArray[0]);
+var count = 0;
+
+$(".allax-image").each(function(){
+  
+  $(this).addClass(topBackgroundimageArray[count++]);
+  
+});
+
+//$("#topImage").addClass(topBackgroundimageArray[0]);
+//$("#image2").addClass(topBackgroundimageArray[1]);
 
 var currentClass;
 var currentImage = 0;
@@ -148,17 +141,20 @@ var oldImage = 0;
 
 function switchBackgrounds()
 {
-      
-    oldImage = currentImage;
-  
-    currentImage++;  
     
-    if(currentImage >= topBackgroundimageArray.length)
-    {
-      currentImage = 0;
-    }
-      
-    $("#topImage").switchClass(topBackgroundimageArray[oldImage], topBackgroundimageArray[currentImage], 0);
+/*
+  for(var count=0;count<$(".allax-image").length;count++)
+  {
+  
+    $(".allax-image").eq(count).switchClass(topBackgroundimageArray[topBackgroundimageArray.length-1], topBackgroundimageArray[0], 0);
+    
+    topBackgroundimageArray.push(topBackgroundimageArray.shift());
+    //console.log("Background images: " + topBackgroundimageArray[topBackgroundimageArray.length-1] + ":" + topBackgroundimageArray[0]);
+        
+    console.log("loop switch: " + topBackgroundimageArray);
+    
+  }
+  */
   
 }
 
@@ -168,43 +164,69 @@ function switchBackgrounds()
  *
  **********************/
 
+var _this = this;
+
 function eventsCompleted() {
 
     console.log("     eventsCompleted");
+  
+  $("#whatTheyNeed").focus(function(){
     
-  $('#contactForm').submit(function(e) {
-        
-        e.preventDefault();
-                               
+    $(this).val('');
+    
+  });
+  
+  // Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='contactForm']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      name: "required",
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      },
+      phoneNumber: "required",
+      whatTheyNeed: "required"
+    },
+    // Specify validation error messages
+    messages: {
+      firstname: "Please enter your name",
+      email: "Please enter a valid email address",
+      phoneNumber: "Please enter a phone number",
+      whatTheyNeed: "Please tell us a little of your needs"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+            
+      console.log("form: " + form);
+      
          $.ajax({
             type: "POST",
             url: 'assets/php/sendContactEmail.php',
-            data: $(this).serialize(),
+            data: $(form).serialize(),
             success: function(response)
             {
                 
               _this.openModal('modalWindow');
               
-              /*
-                var jsonData = JSON.parse(response);
- 
-                // user is logged in successfully in the back-end
-                // let's redirect
-                if (jsonData.success == "1")
-                {
-                    //alert("Mail sent to: " + jsonData.emailaddress);
-                }
-                else
-                {
-                    alert('Invalid Credentials!');
-                }
-                */
            },
            error: function (jqXHR, textStatus, errorThrown) { alert(jqXHR.status);
             alert(errorThrown); }
           });
-       
-
-        });
+            
+      return false;
+           
+    }
+  });
+});
 
 }
