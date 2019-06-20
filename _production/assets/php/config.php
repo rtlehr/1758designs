@@ -1,8 +1,8 @@
     <?php
     return [
-        'host' => "EMAIL HOST NAME",
-        'port' => "EMAIL PORT",
-        'user' => "EMAIL USER NAME",
-        'password' => "EMAIL PASSWORD"
+        'host' => "smtp.1and1.com",
+        'port' => '25',
+        'user' => "info@1758designs.com",
+        'password' => "!14@yrshireCT"
     ];
     ?>
