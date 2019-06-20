@@ -40,7 +40,7 @@ $mail->SMTPAuth   = true;                  // enable SMTP authentication
 $mail->Host       = "smtp.1and1.com"; // sets the SMTP server
 $mail->Port       = 25;                    // set the SMTP port for the GMAIL server
 $mail->Username   = "info@1758designs.com"; // SMTP account username
-$mail->Password   = "Ba!t0ri0!es";        // SMTP account password
+$mail->Password   = "!14@yrshireCT";        // SMTP account password
 
 $mail->SetFrom("interestForm@1758designs.com", "Intrest form");
 
