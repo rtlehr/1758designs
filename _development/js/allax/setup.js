@@ -49,7 +49,7 @@ queue.loadFile("assets/images/icon-email.png");
 queue.loadFile("assets/images/icon-twitter.png");
 
 queue.loadFile("assets/images/backgroundImageOne.jpg");
-queue.loadFile("assets/images/backgroundImageOTwo.jpg");
+queue.loadFile("assets/images/backgroundImageTwo.jpg");
 queue.loadFile("assets/images/backgroundImageThree.jpg");
 queue.loadFile("assets/images/backgroundImageFour.jpg");
 
