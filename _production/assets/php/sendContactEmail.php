@@ -2,6 +2,8 @@
 
 require_once('class.phpmailer.php');
 
+$config = include('config.php');
+
 $name = $_POST['name'];
 
 $email = $_POST['email'];
@@ -32,15 +34,16 @@ $mail             = new PHPMailer();
 //$content = "THIS IS A TEST";
   
 $mail->IsSMTP(); // telling the class to use SMTP
-$mail->Host       = "smtp.1and1.com"; // SMTP server
-//$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
-                                           // 1 = errors and messages
-                                           // 2 = messages only
-$mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->Host       = "smtp.1and1.com"; // sets the SMTP server
-$mail->Port       = 25;                    // set the SMTP port for the GMAIL server
-$mail->Username   = "info@1758designs.com"; // SMTP account username
-$mail->Password   = "!14@yrshireCT";        // SMTP account password
+//$mail->Host       = "smtp.1and1.com"; // SMTP server
+//$mail->SMTPDebug  = 2;                    // enables SMTP debug information (for testing)
+                                            // 1 = errors and messages
+                                            // 2 = messages only
+$mail->SMTPAuth   = true;                   // enable SMTP authentication
+$mail->Host       = $config['host'];  // sets the SMTP server
+$mail->Port       = $config['port'];                    // set the SMTP port for the GMAIL server
+$mail->Username   = $config['user'];  // SMTP account username
+$mail->Password   = $config['password'];        // SMTP account password
+
 
 $mail->SetFrom("interestForm@1758designs.com", "Intrest form");
 
